@@ -38,7 +38,7 @@
 #include "IO_Map.h"
 #include "nrf24.h"
 #include "graph.h"
-
+#include "Dribleur.h"
 /* User includes (#include below this line is not maintained by Processor Expert) */
 
 void main(void)
@@ -61,7 +61,7 @@ void main(void)
 	for (i = 0; i < 5000; ++i) {
 
 	};
-
+	init_PWM();
 	init_ADC();
 	nrf24_init();
 	nrf24_config(2, 4);
@@ -75,6 +75,8 @@ void main(void)
 
 		nrf24_send(data_array);
 		while(nrf24_isSending());
+		On_Dribleur(0);
+		
 
 
 		
